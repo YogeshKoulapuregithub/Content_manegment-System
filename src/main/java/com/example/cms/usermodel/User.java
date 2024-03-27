@@ -42,6 +42,9 @@ public class User {
 	private LocalDateTime createdAt;
 	@LastModifiedDate
 	private LocalDateTime postModifiedAt;
+	
+	@Column(nullable = false)
+	private boolean deleted=false;
 
 
 }
