@@ -13,8 +13,8 @@ import io.swagger.v3.oas.models.info.Info;
 public class ApplicationDocumentation {
 	@Bean
 	Contact contact() {
-		return new Contact().name("RamKumar")
-				.url("hithub.com/Ramkumar0706");
+		return new Contact().name("YogiAmogh")
+				.url("github.com/yogiAmogh_07");
 				
 	}
 	
@@ -22,7 +22,7 @@ public class ApplicationDocumentation {
 	Info info() {
 		return new Info().title("Content-Management-System")
 				.description("RestFul API with basic Register User operation")
-				.version("ramkumar v1").contact(contact());
+				.version("yogiAmogh v1").contact(contact());
 	}
 	@Bean
 	OpenAPI openApi() {

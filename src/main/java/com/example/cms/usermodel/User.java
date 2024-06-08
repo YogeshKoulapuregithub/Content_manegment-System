@@ -1,6 +1,7 @@
 package com.example.cms.usermodel;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.data.annotation.CreatedDate;
@@ -13,6 +14,7 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +22,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-@Builder
+
 @Getter
 @Setter
 @ToString
@@ -45,6 +47,9 @@ public class User {
 	
 	@Column(nullable = false)
 	private boolean deleted=false;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Blog> blogs;
 
 
 }
