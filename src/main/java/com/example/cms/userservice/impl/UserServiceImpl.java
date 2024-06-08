@@ -46,9 +46,12 @@ public class UserServiceImpl implements UserService {
 
 
 	public User mapToUser(UserRequest userRequest) {
-		return User.builder().username(userRequest.getUserName())
-				.email(userRequest.getUserEmail()).password(encoder.encode(userRequest.getUserPassword())).build();
-	}
+		User u=new User();
+		u.setEmail(userRequest.getUserEmail());
+		u.setPassword(encoder.encode(userRequest.getUserPassword()));
+		u.setUsername(userRequest.getUserName());
+		return u;
+				}
 
 
 	@Override
@@ -67,11 +70,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public ResponseEntity<ResponseStructure<UserResponse>> findById(int userId) {
 		// TODO Auto-generated method stub
-	return	userRepostiory.findById(userId)
-		.map(user->ResponseEntity.ok
-				(response.setStatuscode(HttpStatus.OK.value())
-						.setMessage("user is found by Id")
-						.setData(matToResponse(user)))).orElseThrow(()->new UserNotFoundById("User ids not Found"));
-		
+		return	userRepostiory.findById(userId)
+				.map(user->ResponseEntity.ok
+						(response.setStatuscode(HttpStatus.OK.value())
+								.setMessage("user is found by Id")
+								.setData(matToResponse(user)))).orElseThrow(()->new UserNotFoundById("User ids not Found"));
+
 	}
 }
