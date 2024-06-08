@@ -1,10 +1,6 @@
 package com.example.cms.utility;
 
-
-
-
 import org.springframework.stereotype.Component;
-
 
 @Component
 public class ResponseStructure<T> {
